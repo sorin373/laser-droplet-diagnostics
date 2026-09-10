@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libdroplet.a CMakeFiles/droplet.dir/src/io/PGM.cpp.obj CMakeFiles/droplet.dir/src/Processing.cpp.obj CMakeFiles/droplet.dir/src/detection/Droplet_Detector.cpp.obj CMakeFiles/droplet.dir/src/Synthetic.cpp.obj
+C:\MinGW\bin\ranlib.exe libdroplet.a

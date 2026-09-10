@@ -1,0 +1,4 @@
+C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build/CMakeFiles/droplet.dir
+C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build/CMakeFiles/droplet_cli.dir
+C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build/CMakeFiles/edit_cache.dir
+C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build/CMakeFiles/rebuild_cache.dir

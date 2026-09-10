@@ -1,0 +1,32 @@
+[
+{
+  "directory": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build",
+  "command": "C:\\MinGW\\bin\\c++.exe  @CMakeFiles/droplet.dir/includes_CXX.rsp -std=c++1z -Wall -Wextra -Wpedantic -Wconversion -Wshadow -o CMakeFiles\\droplet.dir\\src\\io\\PGM.cpp.obj -c C:\\Users\\Sorin\\Documents\\Facultate\\Dev\\Droplet_Diagnostics\\src\\io\\PGM.cpp",
+  "file": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/src/io/PGM.cpp",
+  "output": "CMakeFiles/droplet.dir/src/io/PGM.cpp.obj"
+},
+{
+  "directory": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build",
+  "command": "C:\\MinGW\\bin\\c++.exe  @CMakeFiles/droplet.dir/includes_CXX.rsp -std=c++1z -Wall -Wextra -Wpedantic -Wconversion -Wshadow -o CMakeFiles\\droplet.dir\\src\\Processing.cpp.obj -c C:\\Users\\Sorin\\Documents\\Facultate\\Dev\\Droplet_Diagnostics\\src\\Processing.cpp",
+  "file": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/src/Processing.cpp",
+  "output": "CMakeFiles/droplet.dir/src/Processing.cpp.obj"
+},
+{
+  "directory": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build",
+  "command": "C:\\MinGW\\bin\\c++.exe  @CMakeFiles/droplet.dir/includes_CXX.rsp -std=c++1z -Wall -Wextra -Wpedantic -Wconversion -Wshadow -o CMakeFiles\\droplet.dir\\src\\detection\\Droplet_Detector.cpp.obj -c C:\\Users\\Sorin\\Documents\\Facultate\\Dev\\Droplet_Diagnostics\\src\\detection\\Droplet_Detector.cpp",
+  "file": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/src/detection/Droplet_Detector.cpp",
+  "output": "CMakeFiles/droplet.dir/src/detection/Droplet_Detector.cpp.obj"
+},
+{
+  "directory": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build",
+  "command": "C:\\MinGW\\bin\\c++.exe  @CMakeFiles/droplet.dir/includes_CXX.rsp -std=c++1z -Wall -Wextra -Wpedantic -Wconversion -Wshadow -o CMakeFiles\\droplet.dir\\src\\Synthetic.cpp.obj -c C:\\Users\\Sorin\\Documents\\Facultate\\Dev\\Droplet_Diagnostics\\src\\Synthetic.cpp",
+  "file": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/src/Synthetic.cpp",
+  "output": "CMakeFiles/droplet.dir/src/Synthetic.cpp.obj"
+},
+{
+  "directory": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/build",
+  "command": "C:\\MinGW\\bin\\c++.exe  @CMakeFiles/droplet_cli.dir/includes_CXX.rsp -std=c++1z -o CMakeFiles\\droplet_cli.dir\\apps\\droplet_cli\\main.cpp.obj -c C:\\Users\\Sorin\\Documents\\Facultate\\Dev\\Droplet_Diagnostics\\apps\\droplet_cli\\main.cpp",
+  "file": "C:/Users/Sorin/Documents/Facultate/Dev/Droplet_Diagnostics/apps/droplet_cli/main.cpp",
+  "output": "CMakeFiles/droplet_cli.dir/apps/droplet_cli/main.cpp.obj"
+}
+]
