@@ -78,13 +78,6 @@ namespace droplet
 
     std::uint32_t* read_TIFF_array(std::ifstream &file, ByteOrder order, std::uint32_t offset, std::uint32_t count, std::uint16_t type)
     {
-        std::cout
-        << "read_TIFF_array called with "
-        << "offset=" << offset
-        << " count=" << count
-        << " type=" << type
-        << '\n';
-
         file.clear();
         file.seekg(offset);
 
@@ -280,8 +273,6 @@ namespace droplet
 
         delete[] strip_offsets;
         delete[] strip_byte_counts;
-
-        std::cout << "FInished!\n";
 
         return image;
     }

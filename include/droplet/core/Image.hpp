@@ -23,7 +23,7 @@ namespace droplet
 		Image() noexcept
 			: width(0), height(0), pixels(nullptr) { }
 
-		Image(value_type w, value_type h)
+		Image(size_type w, size_type h)
 			: width(w), height(h)
 		{
 			this->pixels = new value_type[width * height];
@@ -35,13 +35,14 @@ namespace droplet
 				pixels[i] = 255;
 		}
 
-		Image(const Image& image)
+		Image(Image&& other)
+			: width(other.width), height(other.height), pixels(other.pixels)
 		{
-			this->width = image.width;
-			this->height = image.height;
-			this->pixels = image.pixels;
+			other.width = other.height = 0;
+			other.pixels = nullptr;
 		}
 		
+		Image(const Image&) = delete;
 		const_reference operator=(const Image&) = delete;
 
 		~Image()

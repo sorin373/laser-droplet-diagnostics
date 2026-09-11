@@ -8,9 +8,9 @@ namespace droplet
 {
     constexpr double PI = 3.14159265358979323846;
 
-    Component find_component(const Image &image, bool *visited, std::size_t start_x, std::size_t start_y)
+    Droplet find_component(const Image &image, bool *visited, std::size_t start_x, std::size_t start_y)
     {
-        Component component;
+        Droplet component;
 
         component.min_x = component.max_x = start_x;
         component.min_y = component.max_y = start_y;
@@ -96,16 +96,16 @@ namespace droplet
         return component;
     }
 
-    Component find_best_component(const Image &image)
+    Droplet_Set detect_droplets(const Image &image)
     {
+        Droplet_Set ds;
+
         const std::size_t count = image.width * image.height;
 
         bool *visited = new bool[count];
 
         for (std::size_t i = 0; i < count; ++i)
             visited[i] = false;
-
-        Component best;
 
         for (std::size_t i = 0; i < image.height; ++i)
             for (std::size_t j = 0; j < image.width; ++j)
@@ -115,42 +115,24 @@ namespace droplet
                 if (visited[index] || image.at(j, i) != 0)
                     continue;
 
-                Component c = find_component(image, visited, j, i);
-
-                std::cout
-                    << "Area: " << c.area
-                    << " Center: (" << c.center_x << ", " << c.center_y << ")"
-                    << " Size: " << c.width << "x" << c.height
-                    << " Aspect: " << c.aspect_ratio
-                    << " Perimeter: " << c.perimeter
-                    << " Circularity: " << c.circularity
-                    << '\n';
+                Droplet c = find_component(image, visited, j, i);
 
                 bool plausible_droplet = c.area > 100 && c.aspect_ratio > 0.8 && c.aspect_ratio < 1.2 && c.circularity > 0.2;
 
-                if (c.area > best.area && plausible_droplet)
-                    best = c;
+                if (plausible_droplet)
+                    ds.push_back(c);
             }
 
         delete[] visited;
 
-        if (best.area == 0)
+        if (ds.size() == 0)
             throw std::runtime_error("No droplet found!\n");
 
-        return best;
+        return ds;
     }
 
-    Droplet detect_droplet(const Image &image)
+    Image isolate_droplets(const Image &image, const Droplet &droplet)
     {
-        Component best = find_best_component(image);
-
-        return {best.center_x, best.center_y, best.area, 2.0 * std::sqrt(static_cast<double>(best.area) / PI)};
-    }
-
-    Image isolate_droplet(const Image &image)
-    {
-        Component best = find_best_component(image);
-
         Image result(image.width, image.height);
 
         std::size_t count = image.width * image.height;
@@ -163,8 +145,8 @@ namespace droplet
         Point *stack = new Point[count];
         std::size_t stack_size = 0;
 
-        std::size_t start_x = best.seed_x;
-        std::size_t start_y = best.seed_y;
+        std::size_t start_x = droplet.seed_x;
+        std::size_t start_y = droplet.seed_y;
 
         stack[stack_size] = {start_x, start_y};
         ++stack_size;
