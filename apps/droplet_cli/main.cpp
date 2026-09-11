@@ -1,42 +1,35 @@
-#include "droplet/Synthetic.hpp"
-#include "droplet/Processing.hpp"
-#include "droplet/io/PGM.hpp"
+#include <droplet/io/TIFF.hpp>
+#include <droplet/io/PGM.hpp>
+
 #include <iostream>
 
 int main()
 {
-    droplet::Image image =
-        droplet::generate_circle(
-            100,
-            100,
-            50.0,
-            50.0,
-            20.0
+    try
+    {
+        std::cout << "Starting!\n";
+
+        droplet::Image image =
+            droplet::loadTIFF(
+                "data/test/24072026_20um_0.2ml_min_105.98.73Hz_Vpp2_delph_0.012_PM_MOD_87.5kHz/ns_probe__22665537__20260724_183446439_0653.tiff"
+            );
+
+        std::cout << "Loaded TIFF\n";
+        std::cout << "Width: " << image.width << '\n';
+        std::cout << "Height: " << image.height << '\n';
+
+        droplet::savePGM(
+            image,
+            "results/from_tiff.pgm"
         );
 
-    // create an artificial white hole
-    for (std::size_t y = 47; y <= 53; ++y)
-    {
-        for (std::size_t x = 47; x <= 53; ++x)
-        {
-            image.at(x, y) = 255;
-        }
+        std::cout << "Saved PGM\n";
     }
-
-    droplet::savePGM(
-        image,
-        "results/before_fill.pgm"
-    );
-
-    std::cout << "Fill\n";
-    droplet::fill_holes(image);
-
-    std::cout << "Finished!\n";
-
-    droplet::savePGM(
-        image,
-        "results/after_fill.pgm"
-    );
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 1;
+    }
 
     return 0;
 }

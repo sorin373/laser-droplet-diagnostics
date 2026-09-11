@@ -11,9 +11,9 @@ namespace droplet
                 std::uint8_t temp = image.at(j, i);
 
                 if (temp >= limit)
-                    image.at(j, i) = 255;
+                    image.at(j, i) = WHITE;
                 else
-                    image.at(j, i) = 0;
+                    image.at(j, i) = BLACK;
             }
     }
 
@@ -35,18 +35,14 @@ namespace droplet
         // top and bottom border
         for (std::size_t x = 0; x < image.width; ++x)
         {
-            if (image.at(x, 0) == 255)
-            {
-                std::size_t index = x;
-
-                if (!outside[index])
+            if (image.at(x, 0) == WHITE)
+                if (!outside[x])
                 {
-                    outside[index] = true;
+                    outside[x] = true;
                     stack[stack_size++] = {x, 0};
                 }
-            }
 
-            if (image.height > 1 && image.at(x, image.height - 1) == 255)
+            if (image.height > 1 && image.at(x, image.height - 1) == WHITE)
             {
                 std::size_t index = (image.height - 1) * image.width + x;
 

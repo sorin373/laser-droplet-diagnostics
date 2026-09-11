@@ -25,6 +25,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(droplet
     src/io/PGM.cpp
+    src/io/TIFF.cpp
     src/Processing.cpp
     src/detection/Droplet_Detector.cpp
     src/Synthetic.cpp

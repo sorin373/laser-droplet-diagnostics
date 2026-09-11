@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <new>
 
+#define WHITE 255
+#define BLACK 0
+
 namespace droplet
 {
 	class Image
@@ -53,7 +56,7 @@ namespace droplet
 		{ return this->pixels[y * width + x]; }
 
 	private:
-		pointer pixels = nullptr;
+		pointer pixels;
 	};
 }
 
